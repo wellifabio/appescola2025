@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack, router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
@@ -15,7 +16,8 @@ const styles = StyleSheet.create({
 
 export default function RootLayout() {
 
-  function sair() {
+  async function sair() {
+    await AsyncStorage.removeItem('professor').catch(err => console.error(err));
     router.replace('/')
   }
 
