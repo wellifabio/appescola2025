@@ -7,7 +7,7 @@ import styles from "./styles"
 
 export default function Index() {
   const [professor, setProfessor] = useState({ turmaId: null })
-  const [turma, setTurma] = useState({ atividades: [] })
+  const [turma, setTurma] = useState({ nome: null, atividades: [] })
 
   useEffect(() => {
     obterProfessor()
@@ -47,7 +47,7 @@ export default function Index() {
           data={turma.atividades}
           renderItem={({ item }) => (
             <View style={styles.item}>
-              <Text style={styles.textItem}>{item.descricao}</Text>
+              <Text style={styles.textItem}>{item['descricao']}</Text>
             </View>
           )}
         />
