@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import color from '../root/color';
 
 type Props = {
     visible: boolean;
@@ -11,13 +12,13 @@ type Props = {
 const styles = StyleSheet.create({
     modalOverlay: {
         flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: color.t1,
         justifyContent: 'center',
         alignItems: 'center',
     },
     modalBox: {
         width: '80%',
-        backgroundColor: '#fff',
+        backgroundColor: color.c1,
         padding: 20,
         borderRadius: 8,
         alignItems: 'center',
@@ -29,10 +30,13 @@ const styles = StyleSheet.create({
     },
     modalText: {
         marginBottom: 12,
-        color: '#333',
+        color: color.c3,
     },
     modalClose: {
         marginTop: 8,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: color.c4,
     }
 });
 
@@ -49,7 +53,7 @@ export default function MessageModal({ visible, message, onClose, title }: Props
                     {title ? <Text style={styles.modalTitle}>{title}</Text> : null}
                     <Text style={styles.modalText}>{message}</Text>
                     <Pressable style={styles.modalClose} onPress={onClose}>
-                        <Text style={{ color: '#35797d', fontWeight: 'bold' }}>Fechar</Text>
+                        <Text style={{ color: color.c1, fontWeight: 'bold' }}>Fechar</Text>
                     </Pressable>
                 </View>
             </View>

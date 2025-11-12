@@ -3,33 +3,36 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import MessageModal from "./components/MessageModal";
+import api from "./root/api";
+import color from "./root/color";
 
 const styles = StyleSheet.create({
   conteiner: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: color.c2,
   },
   quadro: {
     width: "90%",
     height: "auto",
-    borderColor: "#35797d",
+    borderColor: color.c4,
     borderWidth: 1,
     padding: 10,
     borderRadius: 5,
-    backgroundColor: "#fff",
-    color: "#35797d",
+    backgroundColor: color.c1,
+    color: color.c4,
     gap: 20,
     alignItems: "center"
   },
   botao: {
     padding: 10,
     borderRadius: 5,
-    backgroundColor: '#333',
+    backgroundColor: color.c3,
     textAlign: 'center'
   },
   textButton: {
-    color: '#fff',
+    color: color.c1,
     fontWeight: 'bold',
     textAlign: 'center'
   },
@@ -42,22 +45,22 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
-    borderColor: "#35797d",
+    borderColor: color.c3,
     borderWidth: 1,
     padding: 10,
     borderRadius: 5,
-    backgroundColor: "#fff",
-    color: "#35797d",
+    backgroundColor: color.c1,
+    color: color.c3,
   },
 })
 
 export default function Index() {
 
-  const api = "https://escola-api-2025-b.vercel.app"
-  const [email, setEmail] = useState("")
-  const [senha, setSenha] = useState("")
+  const [email, setEmail] = useState("robson@email.com")
+  const [senha, setSenha] = useState("senha123")
   const [modalVisible, setModalVisible] = useState(false)
   const [modalMessage, setModalMessage] = useState("")
+  const [modalTitle, setModalTitle] = useState("")
 
   async function login() {
     if (email.length > 0 && senha.length > 0) {
@@ -66,17 +69,19 @@ export default function Index() {
         headers: { 'Content-Type': 'application/json' },
         body: `{"email":"${email}","senha":"${senha}"}`
       };
-      const response = await fetch(`${api}/login`, options)
+      const response = await fetch(`${api()}/login`, options)
       if (response.ok) {
         const resp = await response.json()
-        await AsyncStorage.setItem('professor', String(response)).catch(err => console.error(err));
+        await AsyncStorage.setItem('professor', JSON.stringify(resp)).catch(err => console.error(err))
         router.replace('/screens')
       } else {
         const resp = await response.json()
+        setModalTitle("Acesso negado")
         setModalMessage(resp.message)
         setModalVisible(true)
       }
     } else {
+      setModalTitle("Erro")
       setModalMessage("Preencha os campos email e senha")
       setModalVisible(true)
     }
@@ -111,6 +116,7 @@ export default function Index() {
         visible={modalVisible}
         message={modalMessage}
         onClose={() => setModalVisible(false)}
+        title={modalTitle}
       />
     </View>
   );

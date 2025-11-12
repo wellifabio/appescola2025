@@ -1,5 +1,6 @@
 # 👋 App Escola
-Gestão de turmas atividades
+Gestão de Turmas e Atividades, baseado na avaliação SAEP de 2023
+Consumindo a API 
 
 ## Dependências
 - @react-native-async-storage/async-storage
