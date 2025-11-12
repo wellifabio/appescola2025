@@ -1,19 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack, router } from "expo-router";
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-
-const styles = StyleSheet.create({
-  botao: {
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: '#333',
-    marginRight: 10
-  },
-  textButton: {
-    color: '#fff'
-  }
-})
+import { Text, TouchableOpacity } from "react-native";
+import styles from "./root/styles";
 
 export default function RootLayout() {
 
@@ -30,7 +19,7 @@ export default function RootLayout() {
   async function validaSessao() {
     const professor = await AsyncStorage.getItem('professor').catch(err => console.error(err))
     //Se existir o item 'professor' no storage configura o nome dele como título
-    // senão direciona para a tela de login
+    //Senão direciona para a tela de login
     if (professor) {
       const professorObject = JSON.parse(String(professor))
       setHomeTitle(`Professor: ${professorObject.nome}`)
@@ -52,7 +41,7 @@ export default function RootLayout() {
     <Stack.Screen name="index" options={{ title: "Tela de Login" }} />
     <Stack.Screen name="screens" options={{
       title: homeTitle, headerRight: () => (<TouchableOpacity
-        style={styles.botao}
+        style={styles.button}
         onPress={() => sair()}>
         <Text style={styles.textButton}>Sair</Text>
       </TouchableOpacity>)

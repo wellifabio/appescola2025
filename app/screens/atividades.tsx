@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { FlatList, Text, TextInput, TouchableOpacity, View } from "react-native"
 import MessageModal from "../components/MessageModal"
 import api from "../root/api"
-import styles from "./styles"
+import styles from "../root/styles"
 
 export default function Index() {
   const [professor, setProfessor] = useState({ turmaId: null })
@@ -63,7 +63,7 @@ export default function Index() {
 
   return (
     <View
-      style={styles.conteiner}
+      style={styles.conteiner2}
     >
       <View style={styles.quadro}>
         <Text style={styles.title}>{turma.nome}</Text>

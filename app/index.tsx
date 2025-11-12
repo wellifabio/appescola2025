@@ -1,58 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import { useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import MessageModal from "./components/MessageModal";
 import api from "./root/api";
-import color from "./root/color";
-
-const styles = StyleSheet.create({
-  conteiner: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: color.c2,
-  },
-  quadro: {
-    width: "90%",
-    height: "auto",
-    borderColor: color.c4,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: color.c1,
-    color: color.c4,
-    gap: 20,
-    alignItems: "center"
-  },
-  botao: {
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: color.c3,
-    textAlign: 'center'
-  },
-  textButton: {
-    color: color.c1,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold'
-  },
-  text: {
-    fontSize: 16
-  },
-  input: {
-    width: "100%",
-    borderColor: color.c3,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 5,
-    backgroundColor: color.c1,
-    color: color.c3,
-  },
-})
+import styles from "./root/styles";
 
 export default function Index() {
 
@@ -89,7 +41,7 @@ export default function Index() {
 
   return (
     <View
-      style={styles.conteiner}
+      style={styles.conteiner1}
     >
       <View style={styles.quadro}>
         <Text style={styles.title}>Bem vindo</Text>
@@ -107,7 +59,7 @@ export default function Index() {
           secureTextEntry={true}
         />
         <TouchableOpacity
-          style={styles.botao}
+          style={styles.button}
           onPress={() => login()}>
           <Text style={styles.textButton}>Entrar</Text>
         </TouchableOpacity>
