@@ -23,11 +23,13 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         backgroundColor: color.c1,
-        alignItems: "center"
+        alignItems: "center",
+        maxHeight:"60%",
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 16,
+        maxWidth: '60%'
     },
     lista: {
         width: "100%",
@@ -74,6 +76,15 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         backgroundColor: color.c1,
+        color: color.c3,
+    },
+    alterInput: {
+        width:'78%',
+        marginTop:10,
+        borderColor: color.c3,
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 5,
         color: color.c3,
     },
     linha: {

@@ -115,7 +115,7 @@ export default function Index() {
       <View style={styles.quadro}>
         <View style={styles.linha}>
           <TextInput
-            style={styles.input}
+            style={styles.alterInput}
             value={nome}
             onChangeText={setNome}
           />
