@@ -41,6 +41,17 @@ const styles = StyleSheet.create({
     textItem: {
         color: color.c1
     },
+    atividade: {
+        marginTop: 10,
+        padding: 10,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: color.c3,
+        backgroundColor: color.c2
+    },
+    textAtividade: {
+        color: color.c3
+    },
     button: {
         padding: 10,
         borderRadius: 5,
@@ -69,6 +80,35 @@ const styles = StyleSheet.create({
         width: "100%",
         flexDirection: 'row',
         justifyContent: 'space-around',
+        alignItems: 'center'
+    },
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: color.t1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalBox: {
+        width: '80%',
+        backgroundColor: color.c1,
+        padding: 20,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    modalTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 8,
+    },
+    modalText: {
+        marginBottom: 12,
+        color: color.c3,
+    },
+    modalButton: {
+        marginTop: 8,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: color.c4,
     }
 })
 

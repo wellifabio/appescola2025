@@ -16,3 +16,5 @@ Consumindo a API
    ```bash
    npx expo start
    ```
+## Screenshots
+![Screenshot](./assets/screenshot.png)
